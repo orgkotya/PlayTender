@@ -2,3 +2,4 @@
 .DS_Store
 docker/.DS_Store
 docker/local/.DS_Store
+.idea/

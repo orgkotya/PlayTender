@@ -39,7 +39,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Home', 'url' => ['/site/index'], 'visible' => Yii::$app->user->isGuest,],
             ['label' => 'Закупки', 'url' => ['/admin/purchase'], 'visible' => !Yii::$app->user->isGuest, 'active' => Yii::$app->controller->action->id === 'purchase'],
             ['label' => 'Нуменклатури', 'url' => ['/admin/appellation'], 'visible' => !Yii::$app->user->isGuest, 'active' => Yii::$app->controller->action->id === 'appellation'],
             ['label' => 'Registration', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->isGuest, 'active' => Yii::$app->controller->action->id === 'signup'],
@@ -61,7 +61,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 </header>
 
 <main id="main" class="flex-shrink-0" role="main">
-    <div class="container">
+    <div class="container-fluid" style="padding: 4em">
         <?php if (!empty($this->params['breadcrumbs'])): ?>
             <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
         <?php endif ?>
@@ -73,8 +73,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
         <div class="row text-muted">
-            <div class="col-md-6 text-center text-md-start">&copy; My Company <?= date('Y') ?></div>
-            <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
+            <div class="col-md-6 text-center text-md-start">&copy; PlayTender <?= date('Y') ?></div>
+
         </div>
     </div>
 </footer>
